@@ -1,0 +1,84 @@
+\documentclass[letterpaper, 11pt, english]{article}
+\usepackage[letterpaper, total={10in, 8in}, margin=1in]{geometry}
+\usepackage{parskip}  % turn off paragraph indentation
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{tikz-cd}
+\usetikzlibrary{babel}
+\selectlanguage{english}
+
+\usepackage{amsmath}  % for the equation* environment
+\usepackage{amsthm}   % for definition env
+\usepackage{xcolor}   % textcolor
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools} % fancy arrows
+\usepackage{graphicx}  % images
+\usepackage{hyperref}  % hyperlinks
+
+% numbered envs for definition, lemma, proposition, remark, theorem
+\theoremstyle{definition}
+\newtheorem{defn}{DEFINITION}[section]
+
+\theoremstyle{definition}
+\newtheorem{problem}{Exercise}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}[section]
+
+% solution env
+\newenvironment{sol}{\begin{proof}[Solution]}{\end{proof}}
+
+\theoremstyle{plain} % default
+\newtheorem{lemma}{Lemma}[section]
+
+\theoremstyle{plain} % default
+\newtheorem{prop}{Proposition}[section]
+
+\theoremstyle{plain} % default
+\newtheorem{cor}{Corollary}[section]
+
+\theoremstyle{plain} % default
+\newtheorem{thrm}{Theorem}[section]
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+
+% empty set symbol
+\let\oldemptyset\emptyset
+
+\title{1B}
+\author{Gennady Laptev}
+\date{}
+
+\begin{document}
+\maketitle
+\setcounter{section}{0}
+
+% 1
+\setcounter{problem}{0}
+\begin{problem}
+\begin{sol}
+    Clearly, $ L(f, P, [0,1]) = 0 $ for any partition $ P $,
+    since any interval contains an irrational number, so
+    $ \inf_{[a,b]} f = 0 $, where $ [a,b] \subset [0,1] $.
+
+    Let $ q $ be a prime number. Then consider a partition
+    $ P_q = [\frac{j-1}{q}, \frac{j}{q}]_{j = 0}^{q} $.
+    We have $ \sup_{[\frac{j-1}{q}, \frac{j}{q}]} f = \frac{1}{q} $ 
+    and $ U(f, P_q, [0,1]) = q \cdot \frac{1}{q^2} = \frac{1}{q}$,
+    since we have $ q $ segments in partition of length $ \frac{1}{q} $.
+    Then by Archimedean property for any $ \varepsilon > 0 $ we can find some
+    $ n $ s.t. $ \frac{1}{n} < \varepsilon $, and we can always find a prime number $ q \geq n$, 
+    since subset of prime numbers is not bounded in the set of natural numbers.
+    Thus for every $ \varepsilon > 0 $ we can find a partition $ P_q $ s.t.
+    \begin{gather*}
+        U(f, P_q, [0,1]) - L(f, P_q, [0,1]) < \frac{1}{q}  < \varepsilon.
+    \end{gather*}
+    Then by problem 1A.3 we have that $ f $ is Riemann integrable and its integral is 0,
+    since $ L(f,[0,1]) = 0 $.
+\end{sol}
+\end{problem}
+
+\end{document}

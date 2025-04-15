@@ -1,0 +1,137 @@
+\documentclass[letterpaper, 11pt, english]{article}
+\usepackage[letterpaper, total={10in, 8in}, margin=1in]{geometry}
+\usepackage{parskip}  % turn off paragraph indentation
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{tikz-cd}
+\usetikzlibrary{babel}
+\selectlanguage{english}
+
+\usepackage{amsmath}  % for the equation* environment
+\usepackage{amsthm}   % for definition env
+\usepackage{xcolor}   % textcolor
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools} % fancy arrows
+\usepackage{graphicx}  % images
+\usepackage{hyperref}  % hyperlinks
+
+% numbered envs for definition, lemma, proposition, remark, theorem
+\theoremstyle{definition}
+\newtheorem{defn}{DEFINITION}[section]
+
+\theoremstyle{definition}
+\newtheorem{problem}{Exercise}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}[section]
+
+% solution env
+\newenvironment{sol}{\begin{proof}[Solution]}{\end{proof}}
+
+\theoremstyle{plain} % default
+\newtheorem{lemma}{Lemma}[section]
+
+\theoremstyle{plain} % default
+\newtheorem{prop}{Proposition}[section]
+
+\theoremstyle{plain} % default
+\newtheorem{cor}{Corollary}[section]
+
+\theoremstyle{plain} % default
+\newtheorem{thrm}{Theorem}[section]
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+
+% empty set symbol
+\let\oldemptyset\emptyset
+
+\title{Exercises A}
+\author{Gennady Laptev}
+\date{}
+
+\begin{document}
+\maketitle
+\setcounter{section}{0}
+
+
+% 1
+\setcounter{problem}{0}
+\begin{problem}
+\begin{sol}
+    \textbf{(a)} Let $ a, b, c \in \mathbb{F} $ where $ b, c $ are 
+    additive inverses of $ a $. Then
+    \begin{gather*}
+        b = b + 0 = b + (a + c) = (a+b) + c = 0 + c = c.
+    \end{gather*}
+    That's why the cancellation property holds:
+    \begin{gather*}
+         x + y = x + z \implies -x + x +y = -x + x + z \implies y = z. 
+    \end{gather*}
+    
+   \textbf{(b)} We have 
+   \begin{gather*}
+        a + (-a) = 0\\ 
+        -(-a) + (-a) = 0.
+   \end{gather*}
+   Earlier we showed that the additive inverse is unique, therefore
+   $ a = -(-a) $.
+
+   \textbf{(c)} We have
+   \begin{gather*}
+       (-1)a + a = (-1)a + 1a = (-1 + 1)a = 0a = 0.
+   \end{gather*}
+   By \textbf{(a)} we get $ (-1)a = -a $.
+\end{sol}
+\end{problem}
+
+% 2
+\setcounter{problem}{1}
+\begin{problem}
+\begin{sol}
+    \textbf{(a)} Let $ a, b, c \in \mathbb{F} $, where $ b,c $ are multiplicative inverses of 
+    $ a $. Then we have
+    \begin{gather*}
+        b = 1b = (ac)b = (ab)c = 1c = c.
+    \end{gather*}
+
+   \textbf{(b)} We have
+   \begin{gather*}
+       a \cdot a^{-1} = 1 \\ 
+       (a^{-1})^{-1} \cdot a^{-1} = 1.
+   \end{gather*}
+    By uniqueness of an inverse we obtain $ a =  (a^{-1})^{-1}$.   
+\end{sol}
+\end{problem}
+
+% 3
+\setcounter{problem}{2}
+\begin{problem}
+\begin{sol}
+    First, note that $ (-1)(-1) = -(-1) = 1 $. Then we have
+    $ (-a)(-b) = (-1)(-1)ab = ab$.
+\end{sol}
+\end{problem}
+
+
+
+% 13
+\setcounter{problem}{12}
+\begin{problem}
+\begin{sol}
+    Suppose $ i \in \mathbb{F} $ s.t. $ i^{2} = -1 $. 
+    Certainly, $ i \ne 0 $, since $ 0^2 = 0 \ne -1 $. Therefore, by properties of
+    an ordered field, either $ i \in P $ or $ i \not \in P $.
+    If $ i \in P $, then $ i^{2} \in P $, and we reach contradiction since $ -1 \not \in P $.
+    Now suppose $ i \not \in P $ and
+    consider $ i^2 \cdot i^2 = (-1) (-1) = 1 \in P $, and we again reach contradiction.
+    Thus, such element doesn't exist.
+\end{sol}
+\end{problem}
+
+
+
+ 
+\end{document}
