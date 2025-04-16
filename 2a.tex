@@ -1,0 +1,131 @@
+\documentclass[letterpaper, 11pt, english]{article}
+\usepackage[letterpaper, total={10in, 8in}, margin=1.5in]{geometry}
+\usepackage{parskip}  % turn off paragraph indentation
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{tikz-cd}
+\usetikzlibrary{babel}
+\selectlanguage{english}
+
+\usepackage{amsmath}  % for the equation* environment
+\usepackage{amsthm}   % for definition env
+\usepackage{xcolor}   % textcolor
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools} % fancy arrows
+\usepackage{graphicx}  % images
+\usepackage{hyperref}  % hyperlinks
+
+% numbered envs for definition, lemma, proposition, remark, theorem
+\theoremstyle{definition}
+\newtheorem{defn}{DEFINITION}[section]
+
+\theoremstyle{definition}
+\newtheorem{problem}{Exercise}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}[section]
+
+% solution env
+\newenvironment{sol}{\begin{proof}[Solution]}{\end{proof}}
+
+\theoremstyle{plain} % default
+\newtheorem{lemma}{Lemma}[section]
+
+\theoremstyle{plain} % default
+\newtheorem{prop}{Proposition}[section]
+
+\theoremstyle{plain} % default
+\newtheorem{cor}{Corollary}[section]
+
+\theoremstyle{plain} % default
+\newtheorem{thrm}{Theorem}[section]
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+
+% empty set symbol
+\let\oldemptyset\emptyset
+
+\title{2A}
+\author{Gennady Laptev}
+\date{}
+
+\begin{document}
+\maketitle
+\setcounter{section}{0}
+
+% 1
+\setcounter{problem}{0}
+\begin{problem}gg
+\begin{sol}
+    Consider $ I_1, \ldots $ such that
+    $ B \subset \cup_{k=1}^{ \infty} I_k $.
+    and $ J_k, \ldots $ s.t. $ A \subset 
+    \cup_{k=1}^{ \infty} J_k$. We can merge both sets of intervals into 
+    $ L_1, L_2, \ldots $
+    with the following enumeration 
+    \begin{gather*}
+        L_i = 
+       \begin{cases}
+           J_{(i+1)/2}, & i~\textrm{is odd}, \\ 
+           I_{i/2}, & i~\textrm{is even}.
+       \end{cases}
+    \end{gather*}
+    Clearly, $ A \cup B \subset \cup_{k=1}^{ \infty} L_k =
+    \left( \cup_{k=1}^{ \infty} I_k \right)
+    \cup \left( \cup_{k=1}^{ \infty} J_k \right)
+    $. 
+
+    Then we have 
+    \begin{gather*}
+        \lvert A \cup B \rvert \leq  
+        \left( \sum_{k=1}^{ \infty} l(L_k) \right) = 
+        \left( \sum_{k=1}^{ \infty} l(I_k) + l(J_k) \right)
+        =
+        \left( \sum_{k=1}^{ \infty} l(I_k) \right)
+        + \left( \sum_{k=1}^{ \infty} l(J_k) \right) 
+    \end{gather*}
+    By taking the infimum on the right side and using the fact that the 
+    infimum of the sum of sets is the sum of infimums we get
+    \begin{gather*}
+        \lvert A \cup B \rvert \leq 0 + \lvert A \rvert = \lvert A \rvert.
+    \end{gather*}
+    Another inequality $ \lvert A \rvert \leq \lvert A \cup B \rvert  $  holds because 
+    outer measure preserves order.
+    Thus, $ \lvert A \rvert  = \lvert A \cup B \rvert  $.
+\end{sol}
+\end{problem}
+
+% 2
+\setcounter{problem}{1}
+\begin{problem}
+\begin{sol}
+    If $ t = 0 $, then $ tA = \{ 0 \} $, therefore $ \lvert tA \rvert = 0 $, since
+    it is finite. Also, $ \lvert t \rvert \lvert A \rvert = 0 $
+    (even if $ \lvert A \rvert = \infty $, by convention).
+
+    Now assume that $ t \ne 0 $.
+    Let $ I_1, \ldots $ s.t.
+    $ A \subset \cup_{k=1}^{ \infty} I_k $.
+    Then $ tA \subset \cup_{k=1}^{ \infty} t I_k $.
+    Easy to see, that $ \ell(t \cdot  I_k) = \lvert t \rvert  \cdot \ell(I_k) $. 
+    So $ \lvert t A \rvert \leq \sum_{k=1}^{ \infty} \ell (t I_k) =
+    \lvert t \rvert  \sum_{k=1}^{ \infty} \ell (I_k) $. 
+    By taking infimum, we obtain
+    $ \lvert t A \rvert \leq \lvert t \rvert \lvert A \rvert $.
+    
+    The opposite direction
+    \begin{gather*}
+        \lvert A \rvert  = \lvert \frac{1}{t} (tA) \rvert \leq
+        \frac{1}{\lvert t \rvert} \lvert tA \rvert,
+    \end{gather*}
+    where we just used the first inequality with $ t  $ replaced with $ \frac{1}{t} $ and
+    $ A $ replaced with $ tA $. Finally, we get
+    $ \lvert t \rvert \lvert A \rvert \leq \lvert t A \rvert $.
+\end{sol} 
+\end{problem}
+
+ 
+\end{document}
