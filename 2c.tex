@@ -57,6 +57,35 @@
 \setcounter{section}{0}
 
 
+% 1
+\setcounter{problem}{0}
+\begin{problem}
+Explain why there does not exist a measure space $ (X, S, \mu) $ with the property
+$ \left\{ \mu(E) \,\middle|\, E \in S \right\} = [0,1) $.
+\begin{sol}
+    Suppose it is true. Let's denote $ M =  \left\{ \mu(E) \,\middle|\, E \in S \right\}$.
+
+    Since $ S $ is a $ \sigma $-algebra on $ X $, then $ X \in S $. 
+    Suppose $ \mu(X) = x $ and, by hypothesis, $ x < 1 $.
+    Since measures preserve order, then for any $ A \in S $ 
+    holds $ \mu(A) \leq \mu(X) $.
+    Assume $ x > 0 $, otherwise 
+    $ M = \{ 0 \} $.
+    Then $  x = \sup M < 1$.
+    Therefore, for any $ \varepsilon > 0 $ there exists $ y \in M $ 
+    s.t. $ y + \varepsilon > x $. Taking $ \varepsilon = \frac{1 - x}{2} $,
+    we get
+    \begin{gather*}
+        y + \varepsilon = y + \frac{1 - x}{2} \leq x + \frac{1 - x}{2} 
+        < x + 1 - x = 1.
+    \end{gather*}
+    So there exist $ z = y + \varepsilon $ s.t. $ z \not \in M $ and $ z \in [0, 1) $.
+    Thus, $ M \ne [0,1) $.
+\end{sol}
+\end{problem}
+
+
+
 % 10
 \setcounter{problem}{9}
 \begin{problem}
@@ -87,7 +116,5 @@ $ E_{1} \supseteq E_{2} \supseteq \ldots $ of sets in S such that
    $ \lim_{k \to \infty} \mu(E_{k}) = \infty $  which gives the desired inequality.
 \end{sol}
 \end{problem}
-
-
  
 \end{document}
