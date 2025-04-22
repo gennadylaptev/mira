@@ -1,0 +1,93 @@
+\documentclass[letterpaper, 12pt, english]{article}
+\usepackage[letterpaper, total={10in, 8in}, margin=1.5in]{geometry}
+\usepackage{parskip}  % turn off paragraph indentation
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{tikz-cd}
+\usetikzlibrary{babel}
+\selectlanguage{english}
+
+\usepackage{amsmath}  % for the equation* environment
+\usepackage{amsthm}   % for definition env
+\usepackage{xcolor}   % textcolor
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools} % fancy arrows
+\usepackage{graphicx}  % images
+\usepackage{hyperref}  % hyperlinks
+
+% numbered envs for definition, lemma, proposition, remark, theorem
+\theoremstyle{definition}
+\newtheorem{defn}{DEFINITION}[section]
+
+\theoremstyle{definition}
+\newtheorem{problem}{Exercise}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}[section]
+
+% solution env
+\newenvironment{sol}{\begin{proof}[Solution]}{\end{proof}}
+
+\theoremstyle{plain} % default
+\newtheorem{lemma}{Lemma}[section]
+
+\theoremstyle{plain} % default
+\newtheorem{prop}{Proposition}[section]
+
+\theoremstyle{plain} % default
+\newtheorem{cor}{Corollary}[section]
+
+\theoremstyle{plain} % default
+\newtheorem{thrm}{Theorem}[section]
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+
+% empty set symbol
+\let\oldemptyset\emptyset
+
+\title{2C}
+\author{Gennady Laptev}
+\date{}
+
+\begin{document}
+\maketitle
+\setcounter{section}{0}
+
+
+% 10
+\setcounter{problem}{9}
+\begin{problem}
+Give an example of a measure space $ (X, S, \mu ) $ and a decreasing sequence
+$ E_{1} \supseteq E_{2} \supseteq \ldots $ of sets in S such that 
+\begin{gather*}
+    \mu \left( \bigcap_{k=1}^{ \infty} E_{k} \right) \ne \lim_{k \to \infty} \mu(E_{k}).
+\end{gather*}
+\begin{sol}
+   Consider $ \mathbb{R} $ with a counting measure $ \mu $ which is
+   defined on each $ E \subset \mathbb{R} $ as
+   \begin{gather*}
+       \mu(E) = 
+      \begin{cases}
+          n, ~\textrm{if}~ E ~\textrm{is finite and has}~n ~\textrm{elements}, \\ 
+          \infty, ~\textrm{otherwise}.
+      \end{cases}
+   \end{gather*}
+   Choose $ E_k = (k, \infty)$.
+
+   Clearly $ \bigcap_{k=1}^{ \infty} E_{k} = \emptyset $ (Suppose it is not true.
+   Then there exists a real number $ x \in \bigcap_{k=1}^{ \infty} E_{k} $,
+   that is, $ x \in (k, \infty) $ for every $ k \in \mathbb{N} $.
+   By Archimedean property, there exists a natural $ n $ s.t. $ n > x $, 
+   so $ x \not \in (n, \infty) $, which leads to contradiction). Thus, 
+   $ \mu \left( \bigcap_{k=1}^{ \infty} E_{k} \right) = 0 $. 
+   But $ \mu(E_k) = \infty $ for every $ k $, therefore
+   $ \lim_{k \to \infty} \mu(E_{k}) = \infty $  which gives the desired inequality.
+\end{sol}
+\end{problem}
+
+
+ 
+\end{document}
