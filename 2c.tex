@@ -85,6 +85,78 @@ $ \left\{ \mu(E) \,\middle|\, E \in S \right\} = [0,1) $.
 \end{problem}
 
 
+% 4
+\setcounter{problem}{3}
+\begin{problem}
+Give an example of a measure space $ (X, S, \mu) $ such that
+\begin{gather*}
+    \left\{ \mu(E) \,\middle|\, E \in S \right\} =
+    \{ \infty \} \cup \bigcup_{k=1}^{ \infty} [3k, 3k +1]
+\end{gather*}
+\begin{sol}
+%    Consider $ X = \mathbb{Z}^{+} \times \{ 0, 3, \ldots \} $ and 
+%    $ S $ as a set of all subsets of $ X $ s.t. every $ A \in S $
+%    has the form $ B \times  C $, where $ B \subset \mathbb{Z}^{+} $,
+%    $ C \subset \{ 0, 3, \ldots \} $.
+%    Let $ p_1: X \rightarrow \mathbb{Z}^{+}$, 
+%    $ p_2: X \rightarrow  \{ 0, 3, \ldots \}$ be natural projections.
+%    Define a measure $ \mu $ on $ (X, S) $ for each 
+%    $ E \subset X $ as follows:
+%    \begin{gather*}
+%        \mu(E) = \sum_{x \in p_1(E)} x + \sum_{y \in p_2(E)} 2^{-y}.
+%    \end{gather*}
+%    Clearly, $ \mu( \emptyset) = 0 $.
+%    For a list of disjoint $ E_1, E_2, \ldots $ we have
+%    \begin{gather*}
+%        p_{j} \left( \cup_{k=1}^{ \infty} E_k \right)  =
+%        \cup_{k=1}^{ \infty} p_{j} (E_k)
+%    \end{gather*}
+%    
+%    \begin{gather*}
+%        \mu (\cup_{k=1}^{ \infty} E_k) =
+%        \mu \left(  
+%        \sum_{x \in p_1(\cup_{k=1}^{ \infty} E_k)} x +
+%        \sum_{y \in p_2(\cup_{k=1}^{ \infty} E_k)} 2^{-y}
+%        \right) = \\ 
+%        \mu \left(  
+%        \sum_{x \in \cup_{k=1}^{ \infty} p_{1} (E_k)} x +
+%        \sum_{y \in \cup_{k=1}^{ \infty} p_{2} (E_k)} 2^{-y}
+%        \right) =
+%    \end{gather*}
+%    
+\end{sol}
+\end{problem}
+
+% 6
+\setcounter{problem}{5}
+\begin{problem}
+Find all $ c \in [3, \infty) $ s.t. there exists a measure space $ (X, S, \mu) $ with
+\begin{gather*}
+    \left\{ \mu(E) \,\middle|\, E \in S \right\} = [0,1] \cup [3, c]
+\end{gather*}
+\begin{sol}
+    Since measures preserve order, then we have $ \mu(X) = c $. 
+    Suppose $ c < 4 $. Then by hypothesis there exists $ E \subset X $ 
+    s.t $ \mu(E) = 1 $, therefore $ \mu(X - E) = \mu(X) - \mu(E) = c - 1 < 3 $,
+    contradiction. So, $ c \geq 4 $.
+
+    Assume $ c= 4 $. Then 
+    there exists $ E \subset X $ s.t $ \mu(E) = 3 + a, a \in [\frac{1}{2}, 1) $,
+    and there exists $ F \subset X $ s.t. $ \mu(F) = b > a, b \in (\frac{1}{2}, 1] $.
+    If $ F \subset E $, then $ \mu(E - F) = 3 + a - b < 3 $, contradiction,
+    therefore, $ F \cap E = \emptyset $. Thus, $ \mu(E \cup F) = 3 + a+ b > 4 $, so
+    $ c > 4 $.
+
+    Now assume $ c = k \geq 5 \in \mathbb{N}$. Then there exist $ E, F \subset X $ s.t.
+    $ \mu(E) = k - \varepsilon, \varepsilon \in (0,1) $, $ \mu(F) = k -2 $.
+    Assume $ F \subset E $, then we get
+    $ \mu(E - F) = k - \varepsilon - k + 2 = 2 - \varepsilon $, contradiction. So,
+    $ E \cap F = \emptyset $, therefore
+    $ \mu(E \cup F) = k - \varepsilon + k - 2 = 2k - 2 -\varepsilon > k + 1 $, since 
+    $ k > 2 $. We get that $ c $ is greater than any natural number, and by Archimedean 
+    property, greater than any real number. Thus, $ c = \infty $.
+\end{sol}
+\end{problem}
 
 % 10
 \setcounter{problem}{9}
